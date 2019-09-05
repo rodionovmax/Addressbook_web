@@ -41,7 +41,7 @@ public class ApplicationManager {
         return helperBase;
     }
 
-    public ContactHelper getContactHelper() {
+    public ContactHelper contact() {
         return contactHelper;
     }
 

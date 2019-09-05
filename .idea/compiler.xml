@@ -6,6 +6,8 @@
       <module name="Addressbook.addressbook.test" target="1.8" />
       <module name="addressbook.main" target="1.8" />
       <module name="addressbook.test" target="1.8" />
+      <module name="Addressbook_web.addressbook.main" target="1.8" />
+      <module name="Addressbook_web.addressbook.test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
