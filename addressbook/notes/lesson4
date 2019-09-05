@@ -1,0 +1,32 @@
+###### 4.2 ####################################################
+1. Explanation of different types of Lists and Arrays. Theory
+
+###### 4.3 ####################################################
+1. Created check that counts number of groups before group creates/deletes/modifies and
+asserts actual number of groups after test runs with expected
+
+###### 4.4 ####################################################
+1. Improved method selectGroup() to select checkbox based on index which come in parameter for this method
+
+###### 4.5 ####################################################
+1. Created method getGroupList() that allows to get list of groups. Tests for groups were modified to be able
+to compare sizes of lists before and after test runs
+
+###### 4.6 ####################################################
+1. In GroupData created method equals to compare lists which are objects of GroupData.
+    a. Code -> Generate -> toString()
+    b. Code -> Generate -> equals() and hashCode()
+
+###### 4.7 ####################################################
+1. In GroupData added parameter id to be able to compare collections themself and not just sizes. Refactored methods
+toString(), equal() and hashSet()
+
+###### 4.8 ####################################################
+1. Updated test GroupCreationTests to be able to check that new group was created with max value. Updated GroupData.
+Parameter id changed type to int. Refactored methods equal() and hashSet(). Created setter for id
+
+###### 4.9 ####################################################
+1. In GroupCreationTests created lyambda-function to compare ids
+
+###### 4.10 ####################################################
+1. re-watch

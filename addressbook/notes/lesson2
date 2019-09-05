@@ -1,0 +1,24 @@
+
+###### 2.6 ####################################################
+1. Create ApplicationManager
+2. Pull up all members of this class to ApplicationManager
+3. Replace inheritance on delegation
+4. Create package appmanager and move there ApplicationManager
+5. Create package tests and move tests there
+6. Create package model and move there GroupData
+
+###### 2.7 ####################################################
+1. Create GroupHelper
+2. Pull methods for groups to GroupHelper
+3. Replace inheritance on delegation and check create getters
+4. Initialize groupHelper in ApplicationManager
+5. create new instance of class groupHelper in init
+6. Create a constructor for driver
+
+###### 2.8 ####################################################
+1. Create HelperBase
+2. Create methods type() and click() in HelperBase
+3. In GroupHelper, NavigationHelper, SessionHelper change constructor that calls driver to super(driver)
+
+###### 2.9 ####################################################
+1. Created GroupModificationTests

@@ -1,0 +1,27 @@
+###### 3.3 ####################################################
+1. Created condition to choose type of browser in ApplicationManager. The browser sending as parameter in TestBase
+
+###### 3.4 ####################################################
+1. String equals. Difference between == and .equals()
+
+###### 3.5 ####################################################
+1. Condition to skip field if sending null parameter
+
+###### 3.6 ####################################################
+1. Enhanced method type to skip input field if current value equals with value that going to be entered
+
+###### 3.8 ####################################################
+1. Changed method fillContactForm so now it can be used for testContactCreation and testContactModification. If parameter
+creation is true means field suppose to present and needs to be selected. If parameter false so field is not present and
+driver should skip it.
+
+###### 3.9 ####################################################
+1. In NavigationHelper improved methods goToGroupPage() and goToHomePage(). Now it has checks that if certain elements
+present so driver already on desired page. If elements not present click a link
+
+###### 3.10 ####################################################
+1. Created pre-conditions in tests for deletion and modification groups. If there are no group created test creates group itself
+and then modifies or deletes it
+
+
+

@@ -1,0 +1,31 @@
+###### 5.1 ####################################################
+1. In TestBase changed method of how browser setups. Changed from BeforeMethod to BeforeSuite. In results browser setups
+once for all tests in suite which saves a lot of time.
+2. ApplicationManager initialization changed to static
+
+###### 5.2 ####################################################
+1. In GroupCreationTests and GroupModificationTests created @BeforeMethod ensurePreconditions() where moved precondition
+that at least one group exists. If group doesn't exist it will be created
+
+###### 5.3 ####################################################
+1. Having Getters and Setters means that object has attribute but direct access to this attribute is denied. To get this
+access using Getters, to set this access using Setters
+2. Rename getNavigationHelper() to goTo() and goToGroupPage() to groupPage()
+
+###### 5.4 ####################################################
+1. Delete final from all attributes in GroupData
+2. Generate Setters for this attributes
+3. Change setters names to withId(), withFooter(), withHeader(), withName()
+4. In setters change returning value to return this. Also type needs to be changed to GroupData
+5. In GroupData delete constructors
+6. Change tests for creation groups, deletion groups, group modification
+7. Change initialization of new object of GroupData in GroupHelper
+
+###### 5.6 ####################################################
+1. Connect hamcrest library
+2. In tests change Assert.assertEquals to MatcherAssert.assertThat
+3. For MatcherAssert.assertThat add static import
+4 ...
+
+###### 5.7 ####################################################
+1. Caching
