@@ -55,6 +55,7 @@ public class ApplicationManager {
         }
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         System.setProperty("webdriver.chrome.driver", "chromedriver");
+//        System.setProperty("webdriver.gecko.driver", "geckodriver");
         driver.get("http://localhost/addressbook/index.php");
         driver.manage().window().setSize(new Dimension(1399, 877));
         groupHelper = new GroupHelper(driver);
