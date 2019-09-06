@@ -4,10 +4,13 @@ import java.util.Objects;
 
 public class ContactData {
 
-    private int id = Integer.MAX_VALUE;
+    private int id;
     private String firstname;
     private String lastname;
     private String group;
+    private String homePhone;
+    private String mobilePhone;
+    private String workPhone;
 
     @Override
     public String toString() {
@@ -16,15 +19,13 @@ public class ContactData {
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", group='" + group + '\'' +
-                ", home='" + home + '\'' +
-                ", mobile='" + mobile + '\'' +
-                ", work='" + work + '\'' +
+                ", homePhone='" + homePhone + '\'' +
+                ", mobilePhone='" + mobilePhone + '\'' +
+                ", workPhone='" + workPhone + '\'' +
                 '}';
     }
 
-    private String home;
-    private String mobile;
-    private String work;
+
 
     @Override
     public boolean equals(Object o) {
@@ -34,14 +35,14 @@ public class ContactData {
         return id == that.id &&
                 Objects.equals(firstname, that.firstname) &&
                 Objects.equals(lastname, that.lastname) &&
-                Objects.equals(home, that.home) &&
-                Objects.equals(mobile, that.mobile) &&
-                Objects.equals(work, that.work);
+                Objects.equals(homePhone, that.homePhone) &&
+                Objects.equals(mobilePhone, that.mobilePhone) &&
+                Objects.equals(workPhone, that.workPhone);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstname, lastname, home, mobile, work);
+        return Objects.hash(id, firstname, lastname, homePhone, mobilePhone, workPhone);
     }
 
 
@@ -68,16 +69,16 @@ public class ContactData {
         return id;
     }
 
-    public String getHome() {
-        return home;
+    public String getHomePhone() {
+        return homePhone;
     }
 
-    public String getMobile() {
-        return mobile;
+    public String getMobilePhone() {
+        return mobilePhone;
     }
 
-    public String getWork() {
-        return work;
+    public String getWorkPhone() {
+        return workPhone;
     }
 
 
@@ -96,18 +97,18 @@ public class ContactData {
         return this;
     }
 
-    public ContactData withHome(String home) {
-        this.home = home;
+    public ContactData withHomePhone(String home) {
+        this.homePhone = home;
         return this;
     }
 
-    public ContactData withMobile(String mobile) {
-        this.mobile = mobile;
+    public ContactData withMobilePhone(String mobile) {
+        this.mobilePhone = mobile;
         return this;
     }
 
-    public ContactData withWork(String work) {
-        this.work = work;
+    public ContactData withWorkPhone(String work) {
+        this.workPhone = work;
         return this;
     }
 }
