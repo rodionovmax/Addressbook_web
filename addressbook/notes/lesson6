@@ -96,3 +96,6 @@ private void saveAsJson(List<GroupData> groups, File file) throws IOException {
 ###### 6.8 ####################################################
 1. Auto-closing files after everything has been red or written.
 In order to auto-close put everything inside try(). Necessary when writing to a file. Or use writer.close();
+
+###### 6.9 ####################################################
+1. Created tasks with test suites in build.gradle
