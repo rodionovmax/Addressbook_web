@@ -74,16 +74,18 @@ public class GroupCreationTests extends TestBase {
 
     @DataProvider
     public Iterator<Object[]> validGroupsFromJson() throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader(new File("/Users/max/sandbox/Addressbook/addressbook/src/test/resources/groups.json")));
-        String json = "";
-        String line = reader.readLine();
-        while (line != null){
-            json += line;
-            line = reader.readLine();
+        // it's inside try for auto-closing file after everything has been red. Not necessary for reading files
+        try (BufferedReader reader = new BufferedReader(new FileReader(new File("/Users/max/sandbox/Addressbook/addressbook/src/test/resources/groups.json")))){
+            String json = "";
+            String line = reader.readLine();
+            while (line != null){
+                json += line;
+                line = reader.readLine();
+            }
+            Gson gson = new Gson();
+            List<GroupData> groups = gson.fromJson(json, new TypeToken<List<GroupData>>(){}.getType());
+            return groups.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
         }
-        Gson gson = new Gson();
-        List<GroupData> groups = gson.fromJson(json, new TypeToken<List<GroupData>>(){}.getType());
-        return groups.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
     }
 
     @Test(dataProvider = "validGroupsFromJson")

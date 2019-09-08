@@ -92,3 +92,7 @@ private void saveAsJson(List<GroupData> groups, File file) throws IOException {
         List<GroupData> groups = gson.fromJson(json, new TypeToken<List<GroupData>>(){}.getType());
         return groups.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
     }
+
+###### 6.8 ####################################################
+1. Auto-closing files after everything has been red or written.
+In order to auto-close put everything inside try(). Necessary when writing to a file. Or use writer.close();
