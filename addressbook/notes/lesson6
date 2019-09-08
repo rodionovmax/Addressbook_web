@@ -111,3 +111,8 @@ if (project.hasProperty('browser')) {
     if (project.hasProperty('target')) {
         systemProperty 'target', "${target}"
     }
+
+###### 6.11 ####################################################
+1. Logging using library logback
+2. Created file logback.xml in resources
+3. In TestBase Created BeforeMethod and AfterMethod for logging
