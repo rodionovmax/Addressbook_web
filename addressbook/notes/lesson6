@@ -24,3 +24,18 @@
         list.add(new Object[] {new GroupData().withName("test3").withHeader("header 3").withFooter("footer 3")});
         return list.iterator();
     }
+
+###### 6.5 ####################################################
+1. Created method-reader that getting parameters from file
+@DataProvider
+    public Iterator<Object[]> validGroupsUsingFile() throws IOException {
+        List<Object[]> list = new ArrayList<Object[]>();
+        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.csv")));
+        String line = reader.readLine();
+        while (line != null){
+            String[] split = line.split(";");
+            list.add(new Object[] {new GroupData().withName(split[0]).withHeader(split[1]).withFooter(split[2])});
+            line = reader.readLine();
+        }
+        return list.iterator();
+    }
