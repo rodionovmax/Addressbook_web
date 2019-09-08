@@ -99,3 +99,15 @@ In order to auto-close put everything inside try(). Necessary when writing to a 
 
 ###### 6.9 ####################################################
 1. Created tasks with test suites in build.gradle
+
+###### 6.10 ####################################################
+1. Created file local.properties where initialized properties for local test machine
+2. Modified TestBase and Application manager to read properties from file
+properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
+3. Added conditions in gradle file
+if (project.hasProperty('browser')) {
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')) {
+        systemProperty 'target', "${target}"
+    }

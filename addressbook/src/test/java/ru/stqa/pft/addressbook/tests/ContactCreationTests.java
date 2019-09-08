@@ -7,7 +7,7 @@ import java.io.File;
 
 public class ContactCreationTests extends TestBase{
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void testContactCreation(){
         app.goTo().goToHomePage();
         app.contact().initContactCreation();

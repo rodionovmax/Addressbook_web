@@ -24,6 +24,12 @@ task testGroups(type: Test) {
     useTestNG() {
                 suites 'src/test/resources/testng-groups.xml'
             }
+    if (project.hasProperty('browser')) {
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')) {
+        systemProperty 'target', "${target}"
+    }
 }
 
 task testContacts(type: Test) {
@@ -31,11 +37,23 @@ task testContacts(type: Test) {
 //                suites '/Users/max/sandbox/Addressbook/addressbook/src/test/resources/testng-contacts.xml'
                 suites 'src/test/resources/testng-contacts.xml'
             }
+    if (project.hasProperty('browser')) {
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')) {
+        systemProperty 'target', "${target}"
+    }
 }
 
 test{
     useTestNG() {
         suites 'src/test/resources/testng.xml'
+    }
+    if (project.hasProperty('browser')) {
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')) {
+        systemProperty 'target', "${target}"
     }
 }
 
