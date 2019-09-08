@@ -47,15 +47,16 @@ public class ApplicationManager {
 
     public void init() {
         if (browser.equals(BrowserType.FIREFOX)){
+            System.setProperty("webdriver.gecko.driver", "geckodriver");
             driver = new FirefoxDriver();
         } else if (browser.equals(BrowserType.CHROME)){
+            System.setProperty("webdriver.chrome.driver", "/Users/max/sandbox/Addressbook/addressbook/src/test/resources/chromedriver_76");
+//            System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver_76");
             driver = new ChromeDriver();
         } else if (browser.equals(BrowserType.IE)){
             driver = new InternetExplorerDriver();
         }
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-        System.setProperty("webdriver.chrome.driver", "chromedriver");
-//        System.setProperty("webdriver.gecko.driver", "geckodriver");
         driver.get("http://localhost/addressbook/index.php");
         driver.manage().window().setSize(new Dimension(1399, 877));
         groupHelper = new GroupHelper(driver);

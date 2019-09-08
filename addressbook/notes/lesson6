@@ -39,3 +39,32 @@
         }
         return list.iterator();
     }
+
+###### 6.6 ####################################################
+1. In GroupDataGenerator created method that generates xml file
+private void saveAsXml(List<GroupData> groups, File file) throws IOException {
+        XStream xstream = new XStream(new DomDriver());
+        xstream.processAnnotations(GroupData.class);
+//        xstream.alias("group", GroupData.class);
+        String xml = xstream.toXML(groups);
+        Writer writer = new FileWriter(file);
+        writer.write(xml);
+        writer.close();
+    }
+
+2. In GroupCreationTests created method to read xml file and use it as parameters
+@DataProvider
+    public Iterator<Object[]> validGroupsUsingXmlFile() throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(new File("/Users/max/sandbox/Addressbook/addressbook/src/test/resources/groups.xml")));
+        String xml = "";
+        String line = reader.readLine();
+        while (line != null){
+            xml += line;
+            line = reader.readLine();
+        }
+        XStream xstream = new XStream(new DomDriver());
+//        XStream xstream = new XStream();
+        xstream.processAnnotations(GroupData.class);
+        List<GroupData> groups = (List<GroupData>) xstream.fromXML(xml);
+        return groups.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
+    }
