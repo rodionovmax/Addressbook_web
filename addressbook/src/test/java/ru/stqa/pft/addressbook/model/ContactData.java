@@ -1,20 +1,42 @@
 package ru.stqa.pft.addressbook.model;
 
+import org.hibernate.annotations.Type;
+
+import javax.persistence.*;
 import java.io.File;
 import java.util.Objects;
 
+@Entity
+@Table(name = "addressbook")
 public class ContactData {
 
+    @Id
+    @Column(name = "id")
     private int id;
-    private String firstname;
-    private String lastname;
-    private String group;
-    private String homePhone;
-    private String mobilePhone;
-    private String workPhone;
-    private String allPhones;
-    private File photo;
 
+    @Column(name = "firstname")
+    private String firstname;
+
+    @Column(name = "lastname")
+    private String lastname;
+
+    @Transient
+    private String group;
+
+    @Column(name = "home")
+    @Type(type = "text")
+    private String homePhone;
+
+    @Column(name = "mobile")
+    @Type(type = "text")
+    private String mobilePhone;
+
+    @Column(name = "work")
+    @Type(type = "text")
+    private String workPhone;
+
+    @Transient
+    private String allPhones;
 
     @Override
     public String toString() {
@@ -22,13 +44,12 @@ public class ContactData {
                 "id=" + id +
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
-                ", group='" + group + '\'' +
-                ", homePhone='" + homePhone + '\'' +
-                ", mobilePhone='" + mobilePhone + '\'' +
-                ", workPhone='" + workPhone + '\'' +
                 '}';
     }
 
+    @Column(name = "photo")
+    @Type(type = "text")
+    private String photo;
 
 
     @Override
@@ -90,7 +111,7 @@ public class ContactData {
     }
 
     public File getPhoto() {
-        return photo;
+        return new File(photo);
     }
 
 
@@ -130,7 +151,7 @@ public class ContactData {
     }
 
     public ContactData withPhoto(File photo) {
-        this.photo = photo;
+        this.photo = photo.getPath();
         return this;
     }
 

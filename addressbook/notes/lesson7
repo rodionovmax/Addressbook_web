@@ -10,3 +10,7 @@
     b. Added @Id
     c. Added @Column(name = "group_name")
     d. Added @Type(type = "text")
+
+###### 7.3 ####################################################
+1. Created test testHbConnectionLessonSevenThree()
+2. Modified ContactData to support access to the DB via Hibernate
