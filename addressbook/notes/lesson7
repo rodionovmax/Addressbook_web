@@ -1,3 +1,12 @@
 ###### 7.1 ####################################################
 1. Connection to the database using jdbc
 2. Created DbConnectionTest to test database connection
+
+###### 7.2 ####################################################
+1. Connection to the database using Hibernate ORM
+2. Create configuration file hibernate.cfg.xml
+3. Modified GroupData to support access to the database with Hibernate
+    a. Added @Entity and @Table(name = "group_list")
+    b. Added @Id
+    c. Added @Column(name = "group_name")
+    d. Added @Type(type = "text")

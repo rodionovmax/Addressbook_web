@@ -1,0 +1,4 @@
+2904 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start test testContactCreation with parameters []
+2925 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testContactCreation
+2926 [main] INFO  r.s.pft.addressbook.tests.TestBase - Start test testCurrentDir with parameters []
+2927 [main] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testCurrentDir
