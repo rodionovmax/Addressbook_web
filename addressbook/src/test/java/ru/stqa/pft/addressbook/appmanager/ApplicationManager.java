@@ -23,6 +23,7 @@ public class ApplicationManager {
     private HelperBase helperBase;
     private String browser;
     private ContactHelper contactHelper;
+    private DbHelper dbHelper;
 
     public ApplicationManager(String browser) {
         this.browser = browser;
@@ -49,9 +50,16 @@ public class ApplicationManager {
         return contactHelper;
     }
 
+    public DbHelper db() {
+        return dbHelper;
+    }
+
     public void init() throws IOException {
         String target = System.getProperty("target", "local");
         properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
+
+        dbHelper = new DbHelper();
+
         if (browser.equals(BrowserType.FIREFOX)){
             System.setProperty("webdriver.gecko.driver", "geckodriver");
             driver = new FirefoxDriver();

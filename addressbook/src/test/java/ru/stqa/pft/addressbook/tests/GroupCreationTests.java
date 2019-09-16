@@ -105,6 +105,19 @@ public class GroupCreationTests extends TestBase {
 
     }
 
+    @Test(dataProvider = "validGroupsFromJson")
+    public void testGroupCreationEditedLesson7_4(GroupData group){
+        app.goTo().groupPage();
+        Groups before = app.db().groups();
+        app.group().create(group);
+        assertThat(app.group().count(), equalTo(before.size() + 1));
+        Groups after = app.db().groups();
+        group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt());
+        assertThat(after, equalTo(
+                before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
+
+    }
+
     @Test
     public void testBadGroupCreation(){
         app.goTo().groupPage();
@@ -112,6 +125,18 @@ public class GroupCreationTests extends TestBase {
         GroupData group = new GroupData().withName("test'");
         app.group().create(group);
         Groups after = app.group().all();
+        assertThat(app.group().count(), equalTo(before.size()));
+        group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt());
+        assertThat(after, equalTo(before));
+    }
+
+    @Test
+    public void testBadGroupCreationLesson7_4(){
+        app.goTo().groupPage();
+        Groups before = app.db().groups();
+        GroupData group = new GroupData().withName("test'");
+        app.group().create(group);
+        Groups after = app.db().groups();
         assertThat(app.group().count(), equalTo(before.size()));
         group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt());
         assertThat(after, equalTo(before));
